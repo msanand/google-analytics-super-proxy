@@ -111,6 +111,7 @@ class BaseHandler(webapp2.RequestHandler):
     """
     self.response.set_status(status)
     self.response.headers['Content-Disposition'] = 'inline'
+    self.response.headers['Access-Control-Allow-Origin'] = '*'
     if self.request.get('callback'):  # JSONP Support
       self.response.headers['Content-Type'] = (
           'application/javascript; charset=UTF-8')
